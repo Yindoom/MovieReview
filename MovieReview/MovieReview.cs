@@ -2,15 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace MovieReview
 {
     public class MovieReview : IMovieReview
     {
         public IEnumerable<Review> reviews = new List<Review>();
+
         public int ReviewsFromReviewer(int n)
         {
-            
+
             return reviews.Count(r => r.Reviewer == n);
         }
 
@@ -58,7 +60,7 @@ namespace MovieReview
 
         public int[] MoviesGivenHighestRating()
         {
-            var list = reviews.OrderByDescending(r => r.Grade).Where( r => r.Grade == 5).ToList();
+            var list = reviews.OrderByDescending(r => r.Grade).Where(r => r.Grade == 5).ToList();
             int[] arr = new int[list.Count];
             int i = 0;
             foreach (var rev in list)
@@ -70,24 +72,66 @@ namespace MovieReview
             return arr;
         }
 
-        public int[] MostReviewsReviewer()
+        public int MostReviewsReviewer()
         {
-            throw new System.NotImplementedException();
+            int highestReviewer = -1;
+            int highest = 0;
+            int count = 1;
+            int last = -1;
+
+            foreach (var rev in reviews.OrderBy(r => r.Reviewer))
+            {
+
+                int reviewer = rev.Reviewer;
+                if (reviewer == last)
+                {
+                    count++;
+                }
+                else
+                {
+                    if (count > highest)
+                    {
+                        highest = count;
+                        highestReviewer = reviewer;
+                    }
+
+                    count = 1;
+                }
+
+                last = reviewer;
+            }
+
+            return highestReviewer;
         }
 
         public int[] TopNMovies(int n)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         public int[] MoviesReviewedByReviewer(int n)
         {
-            throw new System.NotImplementedException();
+            var list = reviews.Where(r => r.Reviewer == n).ToArray();
+            int[] arr = new int[list.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = list[i].Reviewer;
+            }
+
+            return arr;
         }
 
         public int[] ReviewersReviewedMovieDecreasing(int n)
         {
-            throw new System.NotImplementedException();
+            var list = reviews.Where(r => r.Movie == n).OrderByDescending(
+                r => r.Grade).ThenBy(r => r.Date).ToArray();
+            int[] arr = new int[list.Length];
+            for (int i = 0; i < list.Length; i++)
+            {
+                arr[i] = list[i].Reviewer;
+            }
+
+            return arr;
         }
     }
 }

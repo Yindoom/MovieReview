@@ -55,8 +55,8 @@ namespace MovieReviewTest
         [InlineData(9, 5)]
         public void TestAverageReviewerRating(int n, double d)
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < n; i++)
             {
                 list.Add(new Review()
@@ -76,8 +76,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestAverageReviewerRating2()
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < 4; i++)
             {
                 list.Add(new Review()
@@ -97,8 +97,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestTimesReviewerHasGivenRating()
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < 4; i++)
             {
                 list.Add(new Review()
@@ -118,8 +118,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestTimesMovieReviewed()
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < 4; i++)
             {
                 list.Add(new Review()
@@ -148,8 +148,8 @@ namespace MovieReviewTest
         [InlineData(9, 5)]
         public void TestAverageMovieRating(int n, double g)
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < n; i++)
             {
                 list.Add(new Review()
@@ -171,8 +171,8 @@ namespace MovieReviewTest
         [InlineData(3, 3, 3)]
         public void TestMovieGivenGrade(int n, int g, int exp)
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < n; i++)
             {
                 list.Add(new Review()
@@ -194,8 +194,8 @@ namespace MovieReviewTest
         [InlineData(5, 5)]
         public void TestMoviesGivenHighestGrade(int n, int exp)
         {
-            MovieReview.MovieReview m = new MovieReview.MovieReview();
             var list = m.reviews.ToList();
+            list.Clear();
             for (int i = 0; i < n; i++)
             {
                 list.Add(new Review()
@@ -226,6 +226,93 @@ namespace MovieReviewTest
         public void TestMostReviewsReviewer()
         {
             
+            var list = m.reviews.ToList();
+            list.Clear();
+            for (int i = 0; i < 3; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = 1,
+                    Date = DateTime.Now
+                });
+            }
+
+            for (int i = 0; i < i-1; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 2,
+                    Grade = 5,
+                    Movie = 1,
+                    Date = DateTime.Now
+                });  
+            }
+
+            m.reviews = list;
+
+            Assert.True(m.MostReviewsReviewer() == 1);
+        }
+
+        [Fact]
+        public void TestMoviesReviewedByReviewer()
+        {
+            var list = m.reviews.ToList();
+            list.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = i+1,
+                    Date = DateTime.Now
+                });
+            }
+
+            m.reviews = list;
+
+            Assert.True(m.MoviesReviewedByReviewer(1).Length == 4);
+        }
+
+        [Fact]
+        public void TestTopNMovies()
+        {
+            var list = m.reviews.ToList();
+            list.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = i+1,
+                    Date = DateTime.Now
+                });
+            }
+
+            m.reviews = list;
+        }
+
+        [Fact]
+        public void TestReviewersReviewedMovieDecreasing()
+        {
+            var list = m.reviews.ToList();
+            list.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = 1,
+                    Date = DateTime.Now
+                });
+            }
+
+            m.reviews = list;
+            Assert.True(m.ReviewersReviewedMovieDecreasing(1).Length == 4);
         }
     }
 }

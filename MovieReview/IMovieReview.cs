@@ -9,7 +9,7 @@ namespace MovieReview
         double AverageMovieRating(int n);
         int TimesMovieGivenGrade(int n, int g);
         int[] MoviesGivenHighestRating();
-        int[] MostReviewsReviewer();
+        int MostReviewsReviewer();
         int[] TopNMovies(int n);
         int[] MoviesReviewedByReviewer(int n);
         int[] ReviewersReviewedMovieDecreasing(int n);
