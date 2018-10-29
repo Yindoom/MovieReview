@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Yindo\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Yindo\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_MovieReview.1364754303.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Yindo\Desktop\CSharp\MovieReview" t="IncludeFlat">
-      <e p=".git\info\exclude" t="IncludeRecursive" />
+    <e p="C:\Users\nicol\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\nicol\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_MovieReview.-1838995019.00" t="ExcludeRecursive" />
+    <e p="C:\Users\nicol\Documents\School\SDM\Comp\MovieReview" t="IncludeFlat">
       <e p="MovieReview" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="MovieReview.csproj" t="IncludeRecursive" />
@@ -24,6 +23,5 @@
         <e p="ReadJsonSpike.csproj" t="IncludeRecursive" />
       </e>
     </e>
-    <e p="C:\Users\Yindo\Documents\gitignore_global.txt" t="IncludeRecursive" />
   </component>
 </project>
