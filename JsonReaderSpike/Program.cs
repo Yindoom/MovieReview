@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 
 
@@ -12,8 +14,8 @@ namespace JsonReaderSpike
         public static void Main(string[] args)
         {
             Console.WriteLine("Reading");
-            //LoadJson();
-            JsonReader();
+            LoadJson();
+            //JsonReader();
             
             Console.WriteLine("Done");
             Console.ReadLine();
@@ -41,23 +43,6 @@ namespace JsonReaderSpike
             public float Movie{ get; set; }
             public int Grade{ get; set; }
             public string Date{ get; set; }
-        }
-
-        public static void JsonReader()
-        {
-            DateTime start = DateTime.Now;
-            using (StreamReader sr = new StreamReader("C:/Users/nicol/Documents/School/ratings.json"))
-            {
-                using (JsonReader reader = new JsonTextReader(sr))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-
-                    IEnumerable<Item> result = serializer.Deserialize<IEnumerable<Item>>(reader);
-                }
-            }
-            DateTime end = DateTime.Now;
-            
-            Console.WriteLine("Time "+ (end-start).TotalSeconds);
         }
     }
     
