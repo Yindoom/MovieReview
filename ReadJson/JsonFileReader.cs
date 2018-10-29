@@ -1,15 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 
-
-
-namespace JsonReaderSpike
+namespace ReadJson
 {
-    internal abstract class Program
+    public class JsonFileReader
     {
         public static void LoadJson()
         {
@@ -28,7 +24,7 @@ namespace JsonReaderSpike
             Console.WriteLine("Time "+ (end-start).TotalSeconds);
         }
 
-        public class Item
+        private class Item
         {
             public int Reviewer { get; set; }
             public float Movie{ get; set; }
@@ -36,5 +32,4 @@ namespace JsonReaderSpike
             public string Date{ get; set; }
         }
     }
-    
 }
