@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieReview", "MovieReview\MovieReview.csproj", "{9A157068-DC71-4D46-A85C-59C8B50B051F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonReaderSpike", "JsonReaderSpike\JsonReaderSpike.csproj", "{53B3E729-73F6-48F8-B9C8-9DD6B4E7DE19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonReaderSpike", "JsonReaderSpike\JsonReaderSpike.csproj", "{84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		{9A157068-DC71-4D46-A85C-59C8B50B051F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A157068-DC71-4D46-A85C-59C8B50B051F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A157068-DC71-4D46-A85C-59C8B50B051F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53B3E729-73F6-48F8-B9C8-9DD6B4E7DE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53B3E729-73F6-48F8-B9C8-9DD6B4E7DE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53B3E729-73F6-48F8-B9C8-9DD6B4E7DE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53B3E729-73F6-48F8-B9C8-9DD6B4E7DE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
