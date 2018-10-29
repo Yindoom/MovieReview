@@ -30,6 +30,7 @@ namespace JsonReaderSpike
 
         public class Item
         {
+			public int id {get; set}
             public int Reviewer { get; set; }
             public float Movie{ get; set; }
             public int Grade{ get; set; }
