@@ -8,8 +8,12 @@ namespace MovieReview
 {
     public class MovieReview : IMovieReview
     {
-        public IEnumerable<Review> reviews = new List<Review>();
-
+        public IEnumerable<Review> reviews;
+        public MovieReview()
+        {
+            JsonReader reader = new JsonReader();
+            reviews = reader.LoadJson();
+        }
         public int ReviewsFromReviewer(int n)
         {
 
