@@ -18,16 +18,9 @@ namespace MovieReview
 
         public double AverageReviewerRating(int n)
         {
-            double sum = 0;
-            var list = reviews.Where(r => r.Reviewer == n).ToList();
-            double count = list.Count;
-            foreach (var rev in list)
-            {
-                sum += rev.Grade;
-            }
+            var res = reviews.Where(r => r.Reviewer == n).Average(r => r.Grade);
 
-            double avg = sum / count;
-            return avg;
+            return res;
         }
 
         public int TimesReviewerHasGivenRating(int n, int g)
@@ -42,15 +35,9 @@ namespace MovieReview
 
         public double AverageMovieRating(int n)
         {
-            var list = reviews.Where(r => r.Movie == n).ToList();
-            double count = list.Count;
-            double rate = 0;
-            foreach (var rev in list)
-            {
-                rate += rev.Grade;
-            }
-
-            return rate / count;
+            var res = reviews.Where(r => r.Movie == n).Average(r => r.Grade);
+            
+            return res;
         }
 
         public int TimesMovieGivenGrade(int n, int g)
@@ -60,78 +47,43 @@ namespace MovieReview
 
         public int[] MoviesGivenHighestRating()
         {
-            var list = reviews.OrderByDescending(r => r.Grade).Where(r => r.Grade == 5).ToList();
-            int[] arr = new int[list.Count];
-            int i = 0;
-            foreach (var rev in list)
-            {
-                arr[i] = rev.Movie;
-                i++;
-            }
+            var list = reviews.OrderByDescending(r => r.Grade).Where(r => r.Grade == 5).
+                Select(r => r.Movie).ToArray();
 
-            return arr;
+            return list;
         }
 
         public int MostReviewsReviewer()
         {
-            int highestReviewer = -1;
-            int highest = 0;
-            int count = 1;
-            int last = -1;
-
-            foreach (var rev in reviews.OrderBy(r => r.Reviewer))
-            {
-
-                int reviewer = rev.Reviewer;
-                if (reviewer == last)
-                {
-                    count++;
-                }
-                else
-                {
-                    if (count > highest)
-                    {
-                        highest = count;
-                        highestReviewer = reviewer;
-                    }
-
-                    count = 1;
-                }
-
-                last = reviewer;
-            }
-
-            return highestReviewer;
+            var result = reviews.GroupBy(r => r.Reviewer).
+                OrderBy(r => r.Count()).Select(r => r.Key).FirstOrDefault();
+            
+            return result;
         }
 
         public int[] TopNMovies(int n)
         {
-            return null;
+            var result = reviews.GroupBy(r => r.Movie).
+                OrderBy(r => r.Average(g => g.Grade))
+                .Select(r => r.Key)
+                .Take(n).ToArray();
+            return result;
         }
 
         public int[] MoviesReviewedByReviewer(int n)
         {
-            var list = reviews.Where(r => r.Reviewer == n).ToArray();
-            int[] arr = new int[list.Length];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = list[i].Reviewer;
-            }
+            var list = reviews.Where(r => r.Reviewer == n).Select(r => r.Movie).ToArray();
 
-            return arr;
+            return list;
         }
 
         public int[] ReviewersReviewedMovieDecreasing(int n)
         {
             var list = reviews.Where(r => r.Movie == n).OrderByDescending(
-                r => r.Grade).ThenBy(r => r.Date).ToArray();
-            int[] arr = new int[list.Length];
-            for (int i = 0; i < list.Length; i++)
-            {
-                arr[i] = list[i].Reviewer;
-            }
+                r => r.Grade).ThenBy(r => r.Date).Select(r => r.Reviewer).ToArray();
 
-            return arr;
+
+            return list;
         }
     }
 }
