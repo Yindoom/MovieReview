@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReadJsonSpike")]
+[assembly: AssemblyTitle("JsonReaderSpike")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ReadJsonSpike")]
+[assembly: AssemblyProduct("JsonReaderSpike")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0F68133B-0430-45AE-92FE-8226083FBBFE")]
+[assembly: Guid("84FDCF9E-1447-4F84-8D7C-ACFC95D04D7F")]
 
 // Version information for an assembly consists of the following four values:
 //
