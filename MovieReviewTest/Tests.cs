@@ -1,17 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MovieReview;
 using Xunit;
+using MovieReview = MovieReview.MovieReview;
 
 namespace MovieReviewTest
 {
     public class Tests
     {
-        private MovieReview.MovieReview m;
-        public Tests()
-        {
-            m = new MovieReview.MovieReview();
-        }
+        private global::MovieReview.MovieReview m;
 
         [Theory]
         [InlineData(1)]
@@ -25,7 +23,8 @@ namespace MovieReviewTest
         [InlineData(9)]
         public void TestReviewsFromReviewer(int n)
         {   
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -55,7 +54,8 @@ namespace MovieReviewTest
         [InlineData(9, 5)]
         public void TestAverageReviewerRating(int n, double d)
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -76,7 +76,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestAverageReviewerRating2()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {
@@ -97,7 +98,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestTimesReviewerHasGivenRating()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {
@@ -118,7 +120,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestTimesMovieReviewed()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {
@@ -148,7 +151,8 @@ namespace MovieReviewTest
         [InlineData(9, 5)]
         public void TestAverageMovieRating(int n, double g)
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -171,7 +175,8 @@ namespace MovieReviewTest
         [InlineData(3, 3, 3)]
         public void TestMovieGivenGrade(int n, int g, int exp)
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -191,10 +196,11 @@ namespace MovieReviewTest
 
         [Theory]
         [InlineData(2, 2)]
-        [InlineData(5, 5)]
+        [InlineData(5, 2)]
         public void TestMoviesGivenHighestGrade(int n, int exp)
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -206,13 +212,13 @@ namespace MovieReviewTest
                     Date = DateTime.Now
                 });
             }
-            for (int i = 0; i < n-1; i++)
+            for (int i = 0; i < n; i++)
             {
                 list.Add(new Review()
                 {
                     Reviewer = 1,
-                    Grade = 4,
-                    Movie = 1,
+                    Grade = 5,
+                    Movie = 2,
                     Date = DateTime.Now
                 });
             }
@@ -222,11 +228,56 @@ namespace MovieReviewTest
             Assert.True(m.MoviesGivenHighestRating().Length == exp);
         }
 
+        public void TestMoviesGivenHighestGrade2()
+        {
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
+            list.Clear();
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = 1,
+                    Date = DateTime.Now
+                });
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = 2,
+                    Date = DateTime.Now
+                });
+
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(new Review()
+                {
+                    Reviewer = 1,
+                    Grade = 5,
+                    Movie = 3,
+                    Date = DateTime.Now
+                });
+
+                m.reviews = list;
+
+                Assert.True(m.MoviesGivenHighestRating().Length == 3);
+            }
+        }
+
         [Fact]
         public void TestMostReviewsReviewer()
         {
             
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 3; i++)
             {
@@ -258,7 +309,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestMoviesReviewedByReviewer()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {
@@ -279,7 +331,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestTopNMovies()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {
@@ -298,7 +351,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestReviewersReviewedMovieDecreasing()
         {
-            var list = m.reviews.ToList();
+            var list = new List<Review>();
+            m = new global::MovieReview.MovieReview(list);
             list.Clear();
             for (int i = 0; i < 4; i++)
             {

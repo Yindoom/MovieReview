@@ -18,5 +18,18 @@ namespace PerformanceTest
             Double time = (stop - start).TotalSeconds;
             Assert.True(time < 4);
         }
+
+        [Fact]
+        public void TestMoviesGivenHighestRatingPerformance()
+        {
+            var m = new global::MovieReview.MovieReview();
+            
+            DateTime start = DateTime.Now;
+            m.MoviesGivenHighestRating();
+            DateTime stop = DateTime.Now;
+            Double time = (stop - start).TotalSeconds;
+            Assert.True(time < 4);
+            Console.Write(time);
+        }
     }
 }
