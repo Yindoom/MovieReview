@@ -346,6 +346,7 @@ namespace MovieReviewTest
             }
 
             m.reviews = list;
+            Assert.True(m.TopNMovies(3).Length == 3);
         }
 
         [Fact]
