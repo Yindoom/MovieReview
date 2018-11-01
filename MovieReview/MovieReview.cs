@@ -8,8 +8,17 @@ namespace MovieReview
 {
     public class MovieReview : IMovieReview
     {
-        public IEnumerable<Review> reviews = new List<Review>();
+        public IEnumerable<Review> reviews;
+        public MovieReview()
+        {
+            JsonReader reader = new JsonReader();
+            reviews = reader.LoadJson();
+        }
 
+        public MovieReview(List<Review> list)
+        {
+            reviews = list;
+        }
         public int ReviewsFromReviewer(int n)
         {
 
@@ -46,11 +55,29 @@ namespace MovieReview
         }
 
         public int[] MoviesGivenHighestRating()
-        {
-            var list = reviews.OrderByDescending(r => r.Grade).Where(r => r.Grade == 5).
-                Select(r => r.Movie).ToArray();
+        {            
+            var list = reviews.Where(r => r.Grade == 5).GroupBy(r => r.Movie).OrderBy(
+                r => r.Count()).ToArray();
 
-            return list;
+            var amount = 0;
+            var before = 0;
+            for (int i = 0; i < list.Length; i++)
+            {
+                
+                var now = list[0];
+                if (now.Count() < before)
+                {
+                    amount = i+1;
+                    break;
+                   
+                }
+                amount = i+1;
+                before = now.Count();
+            }
+
+            var all = list.Select(r => r.Key).Take(amount).ToArray();
+            
+            return all;
         }
 
         public int MostReviewsReviewer()
