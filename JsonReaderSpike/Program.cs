@@ -9,6 +9,7 @@ namespace JsonReaderSpike
 {
     internal abstract class Program
     {
+        //It takes from 10-30 sec to read the file into memory
         public static void LoadJson()
         {
             DateTime start = DateTime.Now;
