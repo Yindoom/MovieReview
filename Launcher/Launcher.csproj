@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A157068-DC71-4D46-A85C-59C8B50B051F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{E41A7BA8-856E-426F-BB7C-16A1BD30B955}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MovieReview</RootNamespace>
-    <AssemblyName>MovieReview</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Launcher</RootNamespace>
+    <AssemblyName>Launcher</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,30 +32,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMovieReview.cs" />
-    <Compile Include="JsonReader.cs" />
-    <Compile Include="MovieReview.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Review.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JsonReaderSpike\JsonReaderSpike.csproj">
+      <Project>{84fdcf9e-1447-4f84-8d7c-acfc95d04d7f}</Project>
+      <Name>JsonReaderSpike</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReadJson\ReadJson.csproj">
       <Project>{04e22628-26cc-45fa-ad32-49ff94c761c3}</Project>
       <Name>ReadJson</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

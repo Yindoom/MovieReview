@@ -1,0 +1,7 @@
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\bin\Debug\JsonReaderSpike.exe
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\bin\Debug\JsonReaderSpike.pdb
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\obj\Debug\JsonReaderSpike.csprojResolveAssemblyReference.cache
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\obj\Debug\JsonReaderSpike.exe
+C:\Users\nicol\Documents\School\SDM\Comp\MovieReview\JsonReaderSpike\obj\Debug\JsonReaderSpike.pdb
