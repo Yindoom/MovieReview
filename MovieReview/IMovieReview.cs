@@ -29,10 +29,12 @@ namespace MovieReview
         //returns an array with the top N movies, based on average rating
         int[] TopNMovies(int n);
         
-        //returns an array of movies reviewed by reviewer (n), sorted decreasing by rate, and then date
+        //returns an array of movies reviewed by reviewer (n),
+        //sorted decreasing by rate, and then date
         int[] MoviesReviewedByReviewer(int n);
         
-        //returns an array of reviewers that have reviewed a movie (n), also sorted by decreasing rate and then date
+        //returns an array of reviewers that have reviewed a movie (n),
+        //also sorted by decreasing rate and then date
         int[] ReviewersReviewedMovieDecreasing(int n);
     }
 }
